@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "My personal blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "eleventy --dryrun",
+    "start": "eleventy --input=src --serve",
+    "build": "eleventy --input=src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dobladov.github.io"
+  },
+  "keywords": [
+    "blog",
+    "Eleventy"
+  ],
+  "author": "Daniel Doblado",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.9.0"
+  }
+}
