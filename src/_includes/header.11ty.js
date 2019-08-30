@@ -1,4 +1,4 @@
-const header = ({title}) => `
+const header = ({ title }) => `
   <style>
     header > nav {
       display: flex;

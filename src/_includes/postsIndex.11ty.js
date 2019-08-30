@@ -1,18 +1,18 @@
 class postIndex {
-  data() {
+  data () {
     return {
-      layout: "layout",
+      layout: 'layout'
     }
   }
 
-  render({ collections }) {
+  render ({ collections }) {
     return `
       <ul>
         ${collections.post.map((post) => `
           <li>
-            <a href=${ post.url }>${ post.data.title }</a>
+            <a href=${post.url}>${post.data.title}</a>
           </li>
-        `).join("\n")}
+        `).join('\n')}
       </ul>
     `
   }
