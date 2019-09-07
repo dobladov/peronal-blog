@@ -1,4 +1,33 @@
 const header = require('./header.11ty.js')
+const { cssmin } = require('./common')
+
+const style = cssmin(`
+  body {
+    background-color: #F5F5F5;
+    font-size: calc(16px + .5vw);
+    font-family: futura-pt,sans-serif,sans-serif;
+    color: #3c3c3c;
+  }
+
+  a {
+    color: #3c3c3c;
+    text-decoration: none;
+    background-image: linear-gradient(#7eb530, #7eb530);
+    background-size: 100% 0.5em;
+    background-repeat: no-repeat;
+    background-position: left 0 bottom -45%;
+  }
+
+  .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: calc(1em + 1.5vw);
+  }
+`)
 
 class layout {
   data () {
@@ -20,31 +49,7 @@ class layout {
       <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed.xml" />
       <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
       <style>
-      body {
-        background-color: #F5F5F5;
-        font-size: calc(16px + .5vw);
-        font-family: futura-pt,sans-serif,sans-serif;
-        color: #3c3c3c;
-      }
-
-      a {
-        color: #3c3c3c;
-        text-decoration: none;
-        background-image: linear-gradient(#7eb530, #7eb530);
-        background-size: 100% 0.5em;
-        background-repeat: no-repeat;
-        background-position: left 0 bottom -45%;
-      }
-
-      .wrapper {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: calc(1em + 1.5vw);
-      }
+        ${style}
       </style>
 
       </head>
