@@ -17,6 +17,8 @@ class layout {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${title}</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+      <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed.xml" />
+      <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
       <style>
       body {
         background-color: #F5F5F5;

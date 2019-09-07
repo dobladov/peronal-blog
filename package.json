@@ -21,6 +21,8 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "dotenv": "^8.1.0",
     "eslint": "^6.2.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
