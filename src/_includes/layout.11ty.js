@@ -47,8 +47,20 @@ class layout {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="author" content="${env.author}">
         <meta name="application-name" content="${env.title}">
+        <meta name="description" content="${env.description}">
         <meta name="generator" content="Eleventy">
         
+        <meta property="og:title" content="${env.title}">
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:description" content="${env.description}">
+        <meta property="og:url" content="https://${env.url}">
+        <meta property="og:site_name" content="${env.title}">
+        <meta property="og:type" content="article">
+
+        <link rel="canonical" href="https://${env.url}">
+        
+        <!-- <meta property="og:image" content="https://sizeof.cat//img/avatar.jpg"> -->
+
         <title>${title}</title>
         
         <link rel="manifest" href="/manifest.webmanifest">
