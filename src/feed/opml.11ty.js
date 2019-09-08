@@ -7,7 +7,7 @@ class envmap {
   }
 
   render ({ collections, env }) {
-    return /* html */`
+    return `
       <opml version="2.0">
         <head>
           <title>${env.title}</title>

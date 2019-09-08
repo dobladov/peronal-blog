@@ -65,7 +65,8 @@ class layout {
         
         <link rel="manifest" href="/manifest.webmanifest">
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-        <link rel="alternate" type="application/rss+xml" title="Feed Atom" href="/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Rss Feed" href="/index.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Feed Atom" href="/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
 
         <style>
