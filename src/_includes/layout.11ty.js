@@ -47,11 +47,13 @@ class layout {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="author" content="${env.author}">
         <meta name="application-name" content="${env.title}">
-
+        <meta name="generator" content="Eleventy">
+        
         <title>${title}</title>
-
+        
         <link rel="manifest" href="/manifest.webmanifest">
-        <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed.xml" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Feed Atom" href="/feed.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
 
         <style>
