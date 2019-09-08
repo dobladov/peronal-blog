@@ -37,21 +37,27 @@ class layout {
     }
   }
 
-  render ({ title, content, normalize }) {
+  render ({ title, content, normalize, env }) {
     return `
     <!DOCTYPE html>
       <html lang="en">
-      <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>${title}</title>
-      <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed.xml" />
-      <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
-      <style>
-        ${normalize}
-        ${style}
-      </style>
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="${env.author}">
+        <meta name="application-name" content="${env.title}">
+
+        <title>${title}</title>
+
+        <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed.xml" />
+        <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
+
+        <style>
+          ${normalize}
+          ${style}
+        </style>
       </head>
       <body>
         ${header({ title })}
