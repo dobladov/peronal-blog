@@ -1,6 +1,5 @@
 const header = require('./header.11ty.js')
-const { cssmin } = require('./common')
-const fetch = require('node-fetch')
+const { cssmin, gets } = require('./common')
 
 const style = cssmin(`
   body {
@@ -31,16 +30,14 @@ const style = cssmin(`
 `)
 
 class layout {
-  data () {
+  async data () {
     return {
-      title: 'Hello'
+      title: 'Hello',
+      normalize: await gets('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css')
     }
   }
 
-  async render ({ title, content }) {
-    const response = await fetch('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css')
-    const normalize = await response.text()
-
+  render ({ title, content, normalize }) {
     return `
     <!DOCTYPE html>
       <html lang="en">
@@ -55,7 +52,6 @@ class layout {
         ${normalize}
         ${style}
       </style>
-
       </head>
       <body>
         ${header({ title })}
