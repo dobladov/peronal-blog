@@ -1,5 +1,6 @@
 const header = require('./header.11ty.js')
 const { cssmin } = require('./common')
+const fetch = require('node-fetch')
 
 const style = cssmin(`
   body {
@@ -36,7 +37,10 @@ class layout {
     }
   }
 
-  render ({ title, content }) {
+  async render ({ title, content }) {
+    const response = await fetch('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css')
+    const normalize = await response.text()
+
     return `
     <!DOCTYPE html>
       <html lang="en">
@@ -45,10 +49,10 @@ class layout {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>${title}</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
       <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed.xml" />
       <link rel="alternate" type="application/json" title="JSON Feed" href="/feed.json" />
       <style>
+        ${normalize}
         ${style}
       </style>
 
