@@ -1,5 +1,5 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss")
-const pluginPWA = require("eleventy-plugin-pwa")
+// const pluginPWA = require("eleventy-plugin-pwa")
 const htmlmin = require("html-minifier")
 const { isProduction } = require('./src/_includes/common')
 
@@ -7,7 +7,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss)
 
   if (isProduction) {
-    eleventyConfig.addPlugin(pluginPWA)
+    // eleventyConfig.addPlugin(pluginPWA)
     
     eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
       if( outputPath.endsWith(".html") ) {

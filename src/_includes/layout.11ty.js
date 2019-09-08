@@ -1,5 +1,5 @@
 const header = require('./header.11ty.js')
-const { cssmin, gets, isProduction } = require('./common')
+const { cssmin, gets } = require('./common')
 
 const style = cssmin(`
   body {
@@ -81,13 +81,6 @@ class layout {
           <h1>${title}</h1>
           ${content}
         </div>
-
-        ${isProduction ? `
-          <script>
-            if ("serviceWorker" in navigator)
-              navigator.serviceWorker.register("/service-worker.js");
-          </script> 
-        ` : ''}
     </body>
     </html>
     `
