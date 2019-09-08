@@ -1,5 +1,5 @@
 const header = require('./header.11ty.js')
-const { cssmin, gets } = require('./common')
+const { cssmin, gets, isProduction } = require('./common')
 
 const style = cssmin(`
   body {
@@ -64,6 +64,7 @@ class layout {
         <title>${title}</title>
         
         <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="canonical" href="https://${env.url}">
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         <link rel="alternate" type="application/rss+xml" title="Rss Feed" href="/index.xml" />
         <link rel="alternate" type="application/rss+xml" title="Feed Atom" href="/atom.xml" />
@@ -80,6 +81,13 @@ class layout {
           <h1>${title}</h1>
           ${content}
         </div>
+
+        ${isProduction ? `
+          <script>
+            if ("serviceWorker" in navigator)
+              navigator.serviceWorker.register("/service-worker.js");
+          </script> 
+        ` : ''}
     </body>
     </html>
     `

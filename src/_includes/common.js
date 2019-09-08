@@ -1,7 +1,11 @@
 const CleanCSS = require('clean-css')
 const https = require('https')
 
-const cssmin = code => new CleanCSS({}).minify(code).styles
+const { NODE_ENV } = process.env
+
+const isProduction = NODE_ENV === 'production'
+
+const cssmin = code => isProduction ? new CleanCSS({}).minify(code).styles : code
 
 const gets = (url) => new Promise((resolve, reject) => {
   https.get(url, (response) => {
@@ -15,5 +19,6 @@ const gets = (url) => new Promise((resolve, reject) => {
 
 module.exports = {
   cssmin,
-  gets
+  gets,
+  isProduction
 }

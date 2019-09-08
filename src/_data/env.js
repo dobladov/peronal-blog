@@ -1,11 +1,12 @@
 require('dotenv').config()
 
-const { title, author, email, url, description } = process.env
+const { title, author, email, url, description, NODE_ENV } = process.env
 
 module.exports = {
   title,
   author,
   email,
   url,
-  description
+  description,
+  NODE_ENV
 }
