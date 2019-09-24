@@ -37,7 +37,7 @@ class layout {
     }
   }
 
-  render ({ title, content, normalize, env }) {
+  render ({ title, content, normalize, env, page: { url } }) {
     return `
     <!DOCTYPE html>
       <html lang="en">
@@ -57,14 +57,12 @@ class layout {
         <meta property="og:site_name" content="${env.title}">
         <meta property="og:type" content="article">
 
-        <link rel="canonical" href="https://${env.url}">
-        
         <!-- <meta property="og:image" content="https://sizeof.cat//img/avatar.jpg"> -->
 
         <title>${title}</title>
         
         <link rel="manifest" href="/manifest.webmanifest">
-        <link rel="canonical" href="https://${env.url}">
+        <link rel="canonical" href="https://${env.url}${url}">
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         <link rel="alternate" type="application/rss+xml" title="Rss Feed" href="/index.xml" />
         <link rel="alternate" type="application/rss+xml" title="Feed Atom" href="/atom.xml" />
@@ -78,7 +76,6 @@ class layout {
       <body>
         ${header({ title })}
         <div class="wrapper">
-          <h1>${title}</h1>
           ${content}
         </div>
     </body>
